@@ -2,7 +2,7 @@
 
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,26 +10,15 @@
         <link rel="stylesheet" href="<%=request.getContextPath() %>/webjars/bootstrap/5.3.0-alpha3/dist/css/bootstrap.min.css"/>
         <script defer src="<%= request.getContextPath() %>/webjars/bootstrap/5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg bg-info-subtle">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">PV</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <body class="d-flex flex-column min-vh-100">
 
-        <h1 class="text-center text-primary">Registrar Contacto</h1>
-        <div class="container">
-            <form action="<%= request.getContextPath() %>/ContactoServlet?action=create" method="POST">
+        <jsp:include page="../templates/header.jsp"></jsp:include>
+
+            <div class="container">
+
+                <h1 class="text-center text-primary">Registrar Contacto</h1>
+
+                <form action="<%= request.getContextPath() %>/ContactoServlet?action=create" method="POST">
                 <div class="mb-3">
                     <label for="nombre" class="form-label"> Nombre:</label> 
                     <input type="text" class="form-control"  name="nombre" id="nombre" required minlength="1" maxlength="100" placeholder="Nombre del Contacto">
@@ -49,5 +38,8 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
+
+        <jsp:include page="../templates/footer.jsp"></jsp:include>
+
     </body>
 </html>
